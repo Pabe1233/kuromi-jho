@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Jho - Kuromi & My Melody</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom, #ffe6fb, #ffffff);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .image-container {
+      opacity: 0;
+      animation: showImage 3s ease-out forwards;
+      animation-delay: 1s;
+      z-index: 2;
+    }
+
+    .image-container img {
+      width: 220px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #ff99cc;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 26px;
+      color: #a100a1;
+      text-shadow: 1px 1px 2px black;
+      opacity: 0;
+      animation: showText 2s ease-in forwards;
+      animation-delay: 4s;
+      z-index: 2;
+    }
+
+    @keyframes showImage {
+      0% { transform: translateY(-100px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes showText {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Corazones flotantes */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff69b4;
+      transform: rotate(45deg);
+      animation: floatHearts 8s infinite ease-in;
+      opacity: 0.7;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-800px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Imagen principal -->
+  <div class="image-container">
+    <img src="bb962d12-9b72-49a1-9e58-58effb9f74d6.png" alt="Kuromi y My Melody">
+  </div>
+
+  <!-- Mensaje romántico -->
+  <div class="message">Te amo mucho mi vida Jho 🖤🎀</div>
+
+  <!-- Corazones flotantes -->
+  <script>
+    const totalHearts = 25;
+
+    for (let i = 0; i < totalHearts; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "-30px";
+      heart.style.animationDelay = Math.random() * 8 + "s";
+      heart.style.width = heart.style.height = (10 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
